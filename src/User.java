@@ -48,7 +48,7 @@ public class User {
         this.accounts = new ArrayList<Account>();
         
         //print log message
-        System.out.printf("New user %s, %s with ID %s %s created. \n", lastName, firstName, this.uuid);
+        System.out.printf("New user %s, %s with ID %s created. \n", lastName, firstName, this.uuid);
     }
 
     /**
@@ -76,12 +76,22 @@ public class User {
 
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            return MessageDigest.isEqual(md.digest(aPin.getBytes()), this.pinHash)
+            return MessageDigest.isEqual(md.digest(aPin.getBytes()), this.pinHash);
         } catch (NoSuchAlgorithmException e) {
             System.err.println("Error, caught "+e);
             e.printStackTrace();
             System.exit(1);
         }
+        return false;
     }
+
+    /**
+     * Get the first name of the user
+     * @return      the user's first name
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+    
 
 }
