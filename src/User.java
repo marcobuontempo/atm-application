@@ -121,4 +121,27 @@ public class User {
         this.accounts.get(acctIndex).printTransactionHistory();
     }
 
+    /**
+     * Get the balance of a particular account
+     * @param acctIndex     the index of the account to use
+     * @return              the balance of the account
+     */
+    public double getAccountBalance(int acctIndex) {
+        return this.accounts.get(acctIndex).getBalance();
+    }
+
+    /**
+     * Get the UUID of a particular account
+     * @param acctIndex     the index of the account to use
+     * @return              the UUID of the account
+     */
+    public String getAccountUuid(int acctIndex) {
+        return this.accounts.get(acctIndex).getUuid();
+    }
+
+
+    public void addAccountTransaction(int acctIndex, double amount, String memo) {
+        this.accounts.get(acctIndex).addTransaction(amount, memo);
+    }
+
 }
