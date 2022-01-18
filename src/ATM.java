@@ -109,4 +109,20 @@ public class ATM {
         }
     }
 
+    public static void showTransactionHistory(User theUser, Scanner sc) {
+        int theAcct;
+
+        //get account whose transaction history to look at
+        do {
+            System.out.printf("Enter the number (1-%d) of the account"+"whose transactions you want to see: ", theUser.numAccounts());
+            theAcct = sc.nextInt()-1;
+            if(theAcct<0 || theAcct >= theUser.numAccounts()) {
+                System.out.println("Invalid account. Please try again.");
+            }
+        } while (theAcct<0 || theAcct >= theUser.numAccounts());
+
+        //print transaction history
+        theUser.printAccountTransactionHistory(theAcct);
+    }
+
 }

@@ -40,4 +40,24 @@ public class Transaction {
         this.memo = memo;
     }
 
+    /**
+     * Get the amount for this transaction
+     * @return  the transaction amount
+     */
+    public double getAmount() {
+        return this.amount;
+    }
+
+    /**
+     * Get a string summarising the transaction
+     * @return      the summary string
+     */
+    public String getSummaryLine() {
+        if(this.amount >= 0) {
+            return String.format("%s : $%.02f : %s", this.timestamp.toString(), this.amount, this.memo); //positive amount
+        } else {
+            return String.format("%s : $(%.02f) : %s", this.timestamp.toString(), this.amount, this.memo); //negative amount, value enclosed in ()
+        }
+    }
+
 }
